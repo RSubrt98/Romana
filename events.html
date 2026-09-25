@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events — Romana Šubrtová</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-brand">Romana Šubrtová</a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="paintings.html">Paintings</a></li>
+            <li><a href="events.html" class="active">Events</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Exhibitions</h1>
+            <p>Upcoming and past shows</p>
+        </div>
+
+        <section class="events-section">
+            <div class="container">
+
+                <!-- UPCOMING ─────────────────────────────────────────── -->
+                <div class="events-group">
+                    <h2 class="events-group-title">Upcoming</h2>
+
+                    <!-- ─────────────────────────────────────────────────
+                         HOW TO ADD AN EVENT:
+                         Copy one <div class="event-card"> block and fill in
+                         the month, day number, title, venue, dates, description.
+                         For past events, add class="event-card past" instead.
+                         If no upcoming events, keep the empty message below.
+                    ──────────────────────────────────────────────────── -->
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-month">Nov</span>
+                            <span class="event-day">08</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Exhibition Title</h3>
+                            <p class="event-venue">Gallery Name &mdash; City, Country</p>
+                            <p class="event-dates">8 November – 30 November 2026</p>
+                            <p class="event-desc">
+                                A short description of the exhibition — what will be shown,
+                                the theme, how many works, opening hours, etc.
+                            </p>
+                            <a href="#" class="event-link">More information &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Uncomment the line below if there are no upcoming events yet:
+                    <p class="events-empty">No upcoming exhibitions at the moment. Check back soon.</p>
+                    -->
+
+                </div>
+
+                <!-- CURRENT ─────────────────────────────────────────── -->
+                <div class="events-group">
+                    <h2 class="events-group-title">Current</h2>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-month">Sep</span>
+                            <span class="event-day">15</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Current Exhibition Title</h3>
+                            <p class="event-venue">Gallery Name &mdash; City, Country</p>
+                            <p class="event-dates">15 September – 31 October 2026</p>
+                            <p class="event-desc">
+                                Description of the exhibition currently on view.
+                            </p>
+                            <a href="#" class="event-link">More information &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Uncomment if nothing is currently showing:
+                    <p class="events-empty">No exhibition currently on view.</p>
+                    -->
+
+                </div>
+
+                <!-- PAST ─────────────────────────────────────────────── -->
+                <div class="events-group">
+                    <h2 class="events-group-title">Past</h2>
+
+                    <div class="event-card past">
+                        <div class="event-date">
+                            <span class="event-month">Apr</span>
+                            <span class="event-day">14</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Past Exhibition Title</h3>
+                            <p class="event-venue">Gallery Name &mdash; City, Country</p>
+                            <p class="event-dates">14 April – 5 May 2026</p>
+                            <p class="event-desc">
+                                Short description of this past show.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="event-card past">
+                        <div class="event-date">
+                            <span class="event-month">Jan</span>
+                            <span class="event-day">20</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Another Past Exhibition</h3>
+                            <p class="event-venue">Gallery Name &mdash; City, Country</p>
+                            <p class="event-dates">20 January – 12 February 2025</p>
+                            <p class="event-desc">
+                                Short description of this past show.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Romana Šubrtová</p>
+        </div>
+    </footer>
+
+</body>
+</html>

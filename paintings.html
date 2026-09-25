@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paintings — Romana Šubrtová</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-brand">Romana Šubrtová</a>
+        <ul class="nav-links">
+            <li><a href="index.html">About</a></li>
+            <li><a href="paintings.html" class="active">Paintings</a></li>
+            <li><a href="events.html">Events</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Paintings</h1>
+            <p>Original works — enquire by email or phone</p>
+        </div>
+
+        <section class="paintings-section">
+            <div class="container">
+                <div class="paintings-grid" id="paintingsGrid"></div>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Romana Šubrtová</p>
+        </div>
+    </footer>
+
+    <script>
+    /* ── PAINTING DATA ────────────────────────────────────────────────────
+       Replace each entry with real data when ready:
+         image: "images/paintings/your-file.jpg"  (or "" for placeholder)
+         title, meta, price as shown
+         sold: true  to mark as sold
+    ──────────────────────────────────────────────────────────────────── */
+    const paintings = [
+      { id:  1, image: "", title: "Morning Light",         meta: "Oil on canvas · 50 × 70 cm · 2024",  price: "CZK 8 000",  sold: false },
+      { id:  2, image: "", title: "Quiet Garden",           meta: "Acrylic · 40 × 60 cm · 2024",        price: "CZK 6 000",  sold: false },
+      { id:  3, image: "", title: "Autumn Path",            meta: "Oil on canvas · 60 × 80 cm · 2023",  price: "CZK 12 000", sold: false  },
+      { id:  4, image: "", title: "Still Waters",           meta: "Watercolour · 30 × 40 cm · 2025",    price: "CZK 4 500",  sold: false },
+      { id:  5, image: "", title: "Afternoon Glow",         meta: "Oil on canvas · 70 × 100 cm · 2025", price: "CZK 15 000", sold: false },
+      { id:  6, image: "", title: "Warm Interior",          meta: "Acrylic · 50 × 50 cm · 2023",        price: "CZK 7 000",  sold: false },
+      { id:  7, image: "", title: "Fields at Dusk",         meta: "Oil on canvas · 80 × 60 cm · 2024",  price: "CZK 11 000", sold: false },
+      { id:  8, image: "", title: "Summer Bouquet",         meta: "Oil on canvas · 40 × 50 cm · 2025",  price: "CZK 9 000",  sold: false  },
+      { id:  9, image: "", title: "Old Town Rooftops",      meta: "Watercolour · 50 × 35 cm · 2023",    price: "CZK 5 500",  sold: false },
+      { id: 10, image: "", title: "The Blue Vase",          meta: "Oil on canvas · 45 × 55 cm · 2024",  price: "CZK 8 500",  sold: false },
+      { id: 11, image: "", title: "River Bend",             meta: "Acrylic · 60 × 80 cm · 2023",        price: "CZK 10 000", sold: false },
+      { id: 12, image: "", title: "Orchard in Bloom",       meta: "Oil on canvas · 70 × 90 cm · 2024",  price: "CZK 13 000", sold: false },
+      { id: 13, image: "", title: "Kitchen Window",         meta: "Watercolour · 30 × 30 cm · 2025",    price: "CZK 3 800",  sold: false },
+      { id: 14, image: "", title: "Fog Over the Valley",    meta: "Oil on canvas · 100 × 70 cm · 2022", price: "CZK 18 000", sold: false  },
+      { id: 15, image: "", title: "Sunlit Courtyard",       meta: "Acrylic · 50 × 70 cm · 2024",        price: "CZK 9 500",  sold: false },
+      { id: 16, image: "", title: "Portrait in Amber",      meta: "Oil on canvas · 60 × 80 cm · 2023",  price: "CZK 14 000", sold: false },
+      { id: 17, image: "", title: "Late Summer",            meta: "Watercolour · 40 × 55 cm · 2025",    price: "CZK 6 200",  sold: false },
+      { id: 18, image: "", title: "Peonies",                meta: "Oil on canvas · 50 × 60 cm · 2024",  price: "CZK 10 500", sold: false },
+      { id: 19, image: "", title: "Harbour at Dawn",        meta: "Acrylic · 80 × 60 cm · 2023",        price: "CZK 11 500", sold: false },
+      { id: 20, image: "", title: "The Reading Corner",     meta: "Oil on canvas · 55 × 70 cm · 2025",  price: "CZK 12 500", sold: false },
+      { id: 21, image: "", title: "Spring Meadow",          meta: "Watercolour · 35 × 50 cm · 2024",    price: "CZK 5 000",  sold: false },
+      { id: 22, image: "", title: "Evening on the Lake",    meta: "Oil on canvas · 90 × 60 cm · 2022",  price: "CZK 16 000", sold: false  },
+      { id: 23, image: "", title: "Lavender Field",         meta: "Acrylic · 60 × 40 cm · 2024",        price: "CZK 8 000",  sold: false },
+      { id: 24, image: "", title: "Cat in the Window",      meta: "Oil on canvas · 40 × 40 cm · 2025",  price: "CZK 7 500",  sold: false },
+      { id: 25, image: "", title: "Cobblestone Alley",      meta: "Watercolour · 30 × 45 cm · 2023",    price: "CZK 4 800",  sold: false },
+      { id: 26, image: "", title: "Golden Hour",            meta: "Oil on canvas · 70 × 50 cm · 2024",  price: "CZK 11 000", sold: false },
+      { id: 27, image: "", title: "By the Fireplace",       meta: "Acrylic · 50 × 65 cm · 2025",        price: "CZK 9 000",  sold: false },
+      { id: 28, image: "", title: "Snowy Village",          meta: "Oil on canvas · 80 × 100 cm · 2023", price: "CZK 20 000", sold: false },
+      { id: 29, image: "", title: "Cherries",               meta: "Watercolour · 25 × 35 cm · 2025",    price: "CZK 3 200",  sold: false },
+      { id: 30, image: "", title: "Twilight",               meta: "Oil on canvas · 60 × 90 cm · 2024",  price: "CZK 14 500", sold: true  },
+      { id: 31, image: "", title: "The Old Mill",           meta: "Acrylic · 70 × 50 cm · 2022",        price: "CZK 9 800",  sold: false },
+      { id: 32, image: "", title: "Forest Floor",           meta: "Oil on canvas · 55 × 75 cm · 2024",  price: "CZK 13 000", sold: false },
+      { id: 33, image: "", title: "Chrysanthemums",         meta: "Watercolour · 40 × 50 cm · 2025",    price: "CZK 6 500",  sold: false },
+      { id: 34, image: "", title: "Balcony View",           meta: "Oil on canvas · 65 × 85 cm · 2023",  price: "CZK 15 000", sold: false },
+      { id: 35, image: "", title: "Quiet Street",           meta: "Acrylic · 50 × 70 cm · 2024",        price: "CZK 8 500",  sold: false },
+      { id: 36, image: "", title: "Café Table",             meta: "Oil on canvas · 40 × 55 cm · 2025",  price: "CZK 10 000", sold: false },
+      { id: 37, image: "", title: "Water Lilies",           meta: "Watercolour · 50 × 35 cm · 2023",    price: "CZK 5 800",  sold: true  },
+      { id: 38, image: "", title: "Wine and Bread",         meta: "Oil on canvas · 45 × 60 cm · 2024",  price: "CZK 11 000", sold: false },
+      { id: 39, image: "", title: "Rolling Hills",          meta: "Acrylic · 80 × 55 cm · 2023",        price: "CZK 12 000", sold: false },
+      { id: 40, image: "", title: "Window at Noon",         meta: "Oil on canvas · 60 × 80 cm · 2025",  price: "CZK 13 500", sold: false },
+      { id: 41, image: "", title: "The Red Chair",          meta: "Acrylic · 45 × 60 cm · 2024",        price: "CZK 8 000",  sold: false },
+      { id: 42, image: "", title: "Park in November",       meta: "Watercolour · 35 × 50 cm · 2023",    price: "CZK 5 200",  sold: false },
+      { id: 43, image: "", title: "Sunflowers",             meta: "Oil on canvas · 60 × 70 cm · 2024",  price: "CZK 12 000", sold: false },
+      { id: 44, image: "", title: "Stone Bridge",           meta: "Acrylic · 70 × 50 cm · 2025",        price: "CZK 9 500",  sold: true  },
+      { id: 45, image: "", title: "First Snow",             meta: "Oil on canvas · 80 × 60 cm · 2023",  price: "CZK 14 000", sold: false },
+      { id: 46, image: "", title: "Afternoon Tea",          meta: "Watercolour · 30 × 40 cm · 2025",    price: "CZK 4 200",  sold: false },
+      { id: 47, image: "", title: "Night Market",           meta: "Acrylic · 65 × 50 cm · 2024",        price: "CZK 9 000",  sold: false },
+      { id: 48, image: "", title: "The Linden Tree",        meta: "Oil on canvas · 90 × 70 cm · 2022",  price: "CZK 17 000", sold: false },
+      { id: 49, image: "", title: "Blue Shutters",          meta: "Watercolour · 40 × 30 cm · 2025",    price: "CZK 4 000",  sold: false },
+      { id: 50, image: "", title: "End of Summer",          meta: "Oil on canvas · 70 × 90 cm · 2024",  price: "CZK 16 000", sold: false },
+      { id: 51, image: "", title: "Market Day",             meta: "Acrylic · 60 × 45 cm · 2024",        price: "CZK 8 500",  sold: false },
+      { id: 52, image: "", title: "The Wooden Gate",        meta: "Oil on canvas · 50 × 70 cm · 2023",  price: "CZK 11 000", sold: false },
+      { id: 53, image: "", title: "Tulips in January",      meta: "Watercolour · 30 × 40 cm · 2025",    price: "CZK 4 000",  sold: true  },
+      { id: 54, image: "", title: "Silver Morning",         meta: "Oil on canvas · 80 × 60 cm · 2024",  price: "CZK 14 000", sold: false },
+      { id: 55, image: "", title: "Copper Kettle",          meta: "Acrylic · 40 × 50 cm · 2025",        price: "CZK 7 000",  sold: false },
+      { id: 56, image: "", title: "Birch Forest",           meta: "Oil on canvas · 90 × 70 cm · 2023",  price: "CZK 17 500", sold: false },
+      { id: 57, image: "", title: "Prague Rooftops",        meta: "Watercolour · 50 × 35 cm · 2024",    price: "CZK 6 000",  sold: false },
+      { id: 58, image: "", title: "Peaches on a Cloth",     meta: "Oil on canvas · 45 × 55 cm · 2025",  price: "CZK 9 500",  sold: false },
+      { id: 59, image: "", title: "The Greenhouse",         meta: "Acrylic · 70 × 55 cm · 2023",        price: "CZK 10 500", sold: true  },
+      { id: 60, image: "", title: "Homecoming",             meta: "Oil on canvas · 100 × 80 cm · 2024", price: "CZK 22 000", sold: false },
+    ];
+
+    const PER_PAGE = 12;
+    const TOTAL_PAGES = Math.ceil(paintings.length / PER_PAGE);
+    let currentPage = 1;
+
+    function buildCard(p) {
+        const imageHtml = p.image
+            ? `<img src="${p.image}" alt="${p.title}">`
+            : `<div class="placeholder-img">${p.id}</div>`;
+
+        const priceHtml = p.sold
+            ? `<span class="painting-sold">${p.price}</span>`
+            : `<span class="painting-price">${p.price}</span>`;
+
+        return `
+            <div class="painting-card">
+                <div class="painting-image">${imageHtml}</div>
+                <div class="painting-info">
+                    <h3>${p.title}</h3>
+                    <span class="painting-meta">${p.meta}</span>
+                    ${priceHtml}
+                </div>
+            </div>`;
+    }
+
+    function render(page) {
+        currentPage = page;
+        const start = (page - 1) * PER_PAGE;
+        const slice = paintings.slice(start, start + PER_PAGE);
+
+        document.getElementById('paintingsGrid').innerHTML = slice.map(buildCard).join('');
+        buildPagination();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function buildPagination() {
+        const nav = document.getElementById('pagination');
+        let html = `<button class="pg-btn pg-arrow" ${currentPage === 1 ? 'disabled' : ''} onclick="render(${currentPage - 1})">&#8592;</button>`;
+
+        for (let i = 1; i <= TOTAL_PAGES; i++) {
+            html += `<button class="pg-btn ${i === currentPage ? 'pg-active' : ''}" onclick="render(${i})">${i}</button>`;
+        }
+
+        html += `<button class="pg-btn pg-arrow" ${currentPage === TOTAL_PAGES ? 'disabled' : ''} onclick="render(${currentPage + 1})">&#8594;</button>`;
+        nav.innerHTML = html;
+    }
+
+    render(1);
+    </script>
+
+</body>
+</html>
