@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="cs" data-lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Výstavy — Romana Šubrtová</title>
+    <script>
+        (function(){
+            var l = localStorage.getItem('site-lang') || 'cs';
+            document.documentElement.setAttribute('data-lang', l);
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-brand">Romana Šubrtová</a>
+        <ul class="nav-links">
+            <li><a href="index.html"><span class="lang-cs">O autorce</span><span class="lang-en">About</span></a></li>
+            <li><a href="paintings.html"><span class="lang-cs">Obrazy</span><span class="lang-en">Paintings</span></a></li>
+            <li><a href="events.html" class="active"><span class="lang-cs">Výstavy</span><span class="lang-en">Events</span></a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="lang-btn" id="langBtn">EN</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1><span class="lang-cs">Výstavy</span><span class="lang-en">Exhibitions</span></h1>
+            <p class="lang-cs">Připravované, probíhající a minulé výstavy</p>
+            <p class="lang-en">Upcoming, current, and past shows</p>
+        </div>
+
+        <section class="events-section">
+            <div class="container">
+
+                <!-- CURRENT ─────────────────────────────────────────── -->
+                <div class="events-group">
+                    <h2 class="events-group-title">
+                        <span class="lang-cs">Probíhající</span>
+                        <span class="lang-en">Current</span>
+                    </h2>
+
+                    <div class="event-card">
+                        <div class="event-date">
+                            <span class="event-month lang-cs">Zář</span>
+                            <span class="event-month lang-en">Sep</span>
+                            <span class="event-day">18</span>
+                        </div>
+                        <div class="event-info">
+                            <img src="images/exhibitions/art-house-melichar.jpg" alt="Art House Melichar" class="event-poster">
+                            <h3><span class="lang-cs">Pop Up Galerie současného umění</span><span class="lang-en">Pop Up Gallery of Contemporary Art</span></h3>
+                            <p class="event-venue">Art House Melichar, <span class="lang-cs">Brandýs nad Labem</span><span class="lang-en">Brandýs nad Labem</span></p>
+                            <p class="event-dates lang-cs">18. 9. – 31. 10. 2026</p>
+                            <p class="event-dates lang-en">18 September – 31 October 2026</p>
+                            <p class="event-desc lang-cs">Dernisáž 23. října od 17:00 s koncertem Die Unterbahn. Poslední dny výstavy: pátek a sobota 30.–31. října, 14:00–19:00. Melicharova vila, vstup ulicí Polní, Brandýs nad Labem.</p>
+                            <p class="event-desc lang-en">Closing event on 23 October from 17:00, with a concert by Die Unterbahn. Last days: Friday and Saturday 30–31 October, 14:00–19:00. Melicharova vila, entrance via Polní street, Brandýs nad Labem.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- UPCOMING ─────────────────────────────────────────── -->
+                <div class="events-group">
+                    <h2 class="events-group-title">
+                        <span class="lang-cs">Připravované</span>
+                        <span class="lang-en">Upcoming</span>
+                    </h2>
+
+                    <div class="event-card no-date">
+                        <div class="event-info">
+                            <h3><span class="lang-cs">Připravujeme</span><span class="lang-en">Coming soon</span></h3>
+                            <p class="event-dates lang-cs">Únor 2027</p>
+                            <p class="event-dates lang-en">February 2027</p>
+                            <p class="event-desc lang-cs">Více informací bude brzy k dispozici.</p>
+                            <p class="event-desc lang-en">More details to follow.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- PAST ─────────────────────────────────────────────── -->
+                <div class="events-group">
+                    <h2 class="events-group-title">
+                        <span class="lang-cs">Minulé</span>
+                        <span class="lang-en">Past</span>
+                    </h2>
+
+                    <!-- Galerie 1 -->
+                    <div class="event-card past">
+                        <div class="event-date">
+                            <span class="event-month lang-cs">Čvc</span>
+                            <span class="event-month lang-en">Jul</span>
+                            <span class="event-day">31</span>
+                        </div>
+                        <div class="event-info">
+                            <h3>Životabudič</h3>
+                            <p class="event-venue">Galerie 1, <span class="lang-cs">Praha</span><span class="lang-en">Prague</span></p>
+                            <p class="event-dates lang-cs">31. 7. – 30. 8. 2024</p>
+                            <p class="event-dates lang-en">31 July – 30 August 2024</p>
+                            <p class="event-desc lang-cs">Umělkyně uznávaná jako geniální a nadčasová portrétní a figurální malířka. Její umělecká tvorba nese znamení tragického osudu, který se výrazně promítá do expresivní podstaty jejích děl. I navzdory nepřekonatelnému zdravotnímu handicapu však autorka zůstává nezlomnou optimistkou, což se odráží v pozitivním duchu a energii, které její obrazy nesou.</p>
+                            <p class="event-desc lang-en">An artist celebrated as a brilliant and timeless portraitist and figurative painter. Her work bears the mark of a tragic fate, strongly reflected in the expressive nature of her paintings. Yet despite an insurmountable physical disability, the artist remains an unshakeable optimist, as shown in the positive spirit and energy that her works carry.</p>
+                        </div>
+                    </div>
+
+                    <!-- Artvarium / Pasáž českého designu -->
+                    <div class="event-card past no-date">
+                        <div class="event-info">
+                            <h3><span class="lang-cs">Přátelé člověka</span><span class="lang-en">Přátelé člověka</span></h3>
+                            <p class="event-venue">Artvarium, <span class="lang-cs">Pasáž českého designu</span><span class="lang-en">Pasáž českého designu</span></p>
+                            <p class="event-desc lang-cs">Cyklus děl s animálními motivy koček a psů. Zvířata jako věrné společníky, symboly emocí a tichého porozumění mezi člověkem a přírodou.</p>
+                            <p class="event-desc lang-en">A cycle of works with feline and canine motifs. Animals as faithful companions, symbols of emotion and silent understanding between humanity and nature.</p>
+                            <a href="https://www.pasazdesignu.cz/vystavovatel/romana-subrtova/" target="_blank" class="event-link lang-cs">Více informací</a>
+                            <a href="https://www.pasazdesignu.cz/vystavovatel/romana-subrtova/" target="_blank" class="event-link lang-en">More information</a>
+                        </div>
+                    </div>
+
+                    <!-- Galerie U Zlatého kohouta -->
+                    <div class="event-card past no-date">
+                        <div class="event-info">
+                            <h3>Emoce</h3>
+                            <p class="event-venue">Galerie U Zlatého kohouta, <span class="lang-cs">Praha</span><span class="lang-en">Prague</span></p>
+                            <p class="event-desc lang-cs">Dva tematické soubory: figurální malba zachycující člověka u vody a v odpočinku, a cyklus věnovaný lidem s posunutým vnímáním a omezenou schopností komunikovat.</p>
+                            <p class="event-desc lang-en">Two thematic series: figurative painting depicting people at rest by water, and a cycle devoted to figures with altered perception and limited ability to communicate.</p>
+                        </div>
+                    </div>
+
+                    <!-- Waid -->
+                    <div class="event-card past no-date">
+                        <div class="event-info">
+                            <h3>Waid</h3>
+                            <p class="event-venue">Galerie Waid</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Romana Šubrtová</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        var lang = localStorage.getItem('site-lang') || 'cs';
+        document.documentElement.setAttribute('data-lang', lang);
+        var langBtn = document.getElementById('langBtn');
+        if (langBtn) {
+            langBtn.textContent = lang === 'cs' ? 'EN' : 'CZ';
+            langBtn.addEventListener('click', function() {
+                lang = lang === 'cs' ? 'en' : 'cs';
+                document.documentElement.setAttribute('data-lang', lang);
+                localStorage.setItem('site-lang', lang);
+                langBtn.textContent = lang === 'cs' ? 'EN' : 'CZ';
+            });
+        }
+        var navToggle = document.getElementById('navToggle');
+        var nav = document.querySelector('.nav');
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('nav-open');
+                navToggle.setAttribute('aria-label', nav.classList.contains('nav-open') ? 'Zavřít menu' : 'Otevřít menu');
+            });
+            document.querySelectorAll('.nav-links a').forEach(function(link) {
+                link.addEventListener('click', function() { nav.classList.remove('nav-open'); });
+            });
+        }
+    })();
+    </script>
+</body>
+</html>

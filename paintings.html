@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="cs" data-lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrazy — Romana Šubrtová</title>
+    <script>
+        (function(){
+            var l = localStorage.getItem('site-lang') || 'cs';
+            document.documentElement.setAttribute('data-lang', l);
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-brand">Romana Šubrtová</a>
+        <ul class="nav-links">
+            <li><a href="index.html"><span class="lang-cs">O autorce</span><span class="lang-en">About</span></a></li>
+            <li><a href="paintings.html" class="active"><span class="lang-cs">Obrazy</span><span class="lang-en">Paintings</span></a></li>
+            <li><a href="events.html"><span class="lang-cs">Výstavy</span><span class="lang-en">Events</span></a></li>
+        </ul>
+        <div class="nav-right">
+            <button class="lang-btn" id="langBtn">EN</button>
+            <button class="nav-toggle" id="navToggle" aria-label="Otevřít menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+
+        <div class="page-header">
+            <h1><span class="lang-cs">Obrazy</span><span class="lang-en">Paintings</span></h1>
+            <p class="lang-cs">Originální díla, informujte se o ceně prostřednictvím WhatsApp nebo e-mailu</p>
+            <p class="lang-en">Original works, enquire about price via WhatsApp or email</p>
+        </div>
+
+        <section class="paintings-section">
+            <div class="container">
+                <div class="paintings-grid" id="paintingsGrid"></div>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Romana Šubrtová</p>
+        </div>
+    </footer>
+
+    <script>
+    const paintings = [
+      { id:  1, image: "images/paintings/painting-01.jpg", title: "Beze jména I",                    meta: "Olej na plátně",                          sold: false },
+      { id:  2, image: "images/paintings/painting-02.jpg", title: "Beze jména II",                   meta: "Olej na plátně",                          sold: false },
+      { id:  3, image: "images/paintings/painting-03.jpg", title: "Beze jména III",                  meta: "Olej na plátně",                          sold: false },
+      { id:  4, image: "images/paintings/painting-04.jpg", title: "Beze jména IV",                   meta: "Olej na plátně",                          sold: false },
+      { id:  5, image: "images/paintings/painting-05.jpg", title: "Beze jména V",                    meta: "Olej na plátně",                          sold: false },
+      { id:  6, image: "images/paintings/painting-06.jpg", title: "Bizarní karneval II",             meta: "Olej na plátně · 120 × 120 cm · 2026",   sold: false },
+      { id:  7, image: "images/paintings/painting-07.jpg", title: "Bizarní karneval I",              meta: "Olej na plátně · 120 × 120 cm · 2026",   sold: false },
+      { id:  8, image: "images/paintings/painting-08.jpg", title: "Beze jména VI",                   meta: "Olej na plátně",                          sold: false },
+      { id:  9, image: "images/paintings/painting-09.jpg", title: "Beze jména VII",                  meta: "Olej na plátně",                          sold: false },
+      { id: 10, image: "images/paintings/painting-10.jpg", title: "Dvojice",                         meta: "Olej na plátně",                          sold: true  },
+      { id: 11, image: "images/paintings/painting-11.jpg", title: "Fotograf Jan Parkman",            meta: "Olej na plátně",                          sold: true  },
+      { id: 12, image: "images/paintings/painting-12.jpg", title: "Jeskyně",                         meta: "Olej na plátně · 90 × 90 cm · 2025",     sold: false },
+      { id: 13, image: "images/paintings/painting-13.jpg", title: "Kachnička",                       meta: "Olej na plátně · 100 × 120 cm · 2025",   sold: false },
+      { id: 14, image: "images/paintings/painting-14.jpg", title: "Krasobruslařka K. Osmond",        meta: "Olej na plátně · 120 × 140 cm · 2018",   sold: false },
+      { id: 15, image: "images/paintings/painting-15.jpg", title: "Matka na trhu",                   meta: "Olej na plátně · 100 × 120 cm · 2021",   sold: false },
+      { id: 16, image: "images/paintings/painting-16.jpg", title: "Nasazené masky",                  meta: "Olej na plátně · 90 × 90 cm · 2026",     sold: false },
+      { id: 17, image: "images/paintings/painting-17.jpg", title: "Nebezpečné, dravé (Maska)",       meta: "Olej na plátně · 50 × 70 cm · 2026",     sold: false },
+      { id: 18, image: "images/paintings/painting-18.jpg", title: "Orli",                            meta: "Olej na plátně · 100 × 120 cm · 2026",   sold: false },
+      { id: 19, image: "images/paintings/painting-19.jpg", title: "Osvěžení v kašně",               meta: "Olej na plátně",                          sold: true  },
+      { id: 20, image: "images/paintings/painting-20.jpg", title: "Poslušná holčička",               meta: "Olej na plátně · 100 × 140 cm · 2018",   sold: false },
+      { id: 21, image: "images/paintings/painting-21.jpg", title: "Průhlední tvorové",               meta: "Olej na plátně · 50 × 70 cm · 2025",     sold: false },
+      { id: 22, image: "images/paintings/painting-22.jpg", title: "Ranní toaleta",                   meta: "Olej na plátně · 100 × 120 cm · 2025",   sold: false },
+      { id: 23, image: "images/paintings/painting-23.jpg", title: "Rocker",                          meta: "Olej na plátně · 60 × 40 cm · 2025",     sold: false },
+      { id: 24, image: "images/paintings/painting-24.jpg", title: "Rockeri",                         meta: "Olej na plátně · 100 × 120 cm · 2026",   sold: false },
+      { id: 25, image: "images/paintings/painting-25.jpg", title: "Sen o sově a akrobatce",          meta: "Olej na plátně · 50 × 70 cm · 2026",     sold: false },
+      { id: 26, image: "images/paintings/painting-26.jpg", title: "Sen o velkém lovu",               meta: "Olej na plátně · 50 × 70 cm · 2025",     sold: false },
+      { id: 27, image: "images/paintings/painting-27.jpg", title: "Sny o předcích",                  meta: "Olej na desce · 60 × 130 cm · 2025",     sold: false },
+      { id: 28, image: "images/paintings/painting-28.jpg", title: "Strach 2",                        meta: "Olej na plátně · 50 × 70 cm · 2022",     sold: false },
+      { id: 29, image: "images/paintings/painting-29.jpg", title: "Tereza s kočkou",                 meta: "Olej na plátně · 90 × 90 cm · 2024",     sold: false },
+      { id: 30, image: "images/paintings/painting-30.jpg", title: "Ukrajina",                        meta: "Olej na plátně",                          sold: false },
+      { id: 31, image: "images/paintings/painting-31.jpg", title: "Vodopád",                         meta: "Olej na plátně · 100 × 120 cm · 2025",   sold: false },
+      { id: 32, image: "images/paintings/painting-32.jpg", title: "Výprava za světluškami",          meta: "Olej na plátně",                          sold: true  },
+      { id: 33, image: "images/paintings/painting-33.jpg", title: "Vzteklá, zdivočelá (Maska)",      meta: "Olej na plátně · 50 × 70 cm · 2026",     sold: false },
+      { id: 34, image: "images/paintings/painting-34.jpg", title: "Zpěvačka",                        meta: "Olej na plátně · 100 × 100 cm · 2025",   sold: false },
+    ];
+
+    const PER_PAGE = 12;
+    const TOTAL_PAGES = Math.ceil(paintings.length / PER_PAGE);
+    let currentPage = 1;
+
+    function translateMeta(cs) {
+        return cs
+            .replace('Olej na plátně', 'Oil on canvas')
+            .replace('Olej na desce', 'Oil on board');
+    }
+
+    function buildCard(p) {
+        const imageHtml = p.image
+            ? `<img src="${p.image}" alt="${p.title}">`
+            : `<div class="placeholder-img">${p.id}</div>`;
+
+        const priceHtml = p.sold
+            ? `<span class="painting-sold"></span>`
+            : `<span class="painting-price lang-cs">Na dotaz</span><span class="painting-price lang-en">On inquiry</span>`;
+
+        return `
+            <div class="painting-card">
+                <div class="painting-image">${imageHtml}</div>
+                <div class="painting-info">
+                    <h3>${p.title}</h3>
+                    <span class="painting-meta lang-cs">${p.meta}</span>
+                    <span class="painting-meta lang-en">${translateMeta(p.meta)}</span>
+                    ${priceHtml}
+                </div>
+            </div>`;
+    }
+
+    function render(page) {
+        currentPage = page;
+        const start = (page - 1) * PER_PAGE;
+        const slice = paintings.slice(start, start + PER_PAGE);
+        document.getElementById('paintingsGrid').innerHTML = slice.map(buildCard).join('');
+        buildPagination();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function buildPagination() {
+        const nav = document.getElementById('pagination');
+        let html = `<button class="pg-btn pg-arrow" ${currentPage === 1 ? 'disabled' : ''} onclick="render(${currentPage - 1})">&#8592;</button>`;
+        for (let i = 1; i <= TOTAL_PAGES; i++) {
+            html += `<button class="pg-btn ${i === currentPage ? 'pg-active' : ''}" onclick="render(${i})">${i}</button>`;
+        }
+        html += `<button class="pg-btn pg-arrow" ${currentPage === TOTAL_PAGES ? 'disabled' : ''} onclick="render(${currentPage + 1})">&#8594;</button>`;
+        nav.innerHTML = html;
+    }
+
+    render(1);
+    </script>
+
+    <script>
+    (function() {
+        var lang = localStorage.getItem('site-lang') || 'cs';
+        document.documentElement.setAttribute('data-lang', lang);
+        var langBtn = document.getElementById('langBtn');
+        if (langBtn) {
+            langBtn.textContent = lang === 'cs' ? 'EN' : 'CZ';
+            langBtn.addEventListener('click', function() {
+                lang = lang === 'cs' ? 'en' : 'cs';
+                document.documentElement.setAttribute('data-lang', lang);
+                localStorage.setItem('site-lang', lang);
+                langBtn.textContent = lang === 'cs' ? 'EN' : 'CZ';
+                render(currentPage);
+            });
+        }
+        var navToggle = document.getElementById('navToggle');
+        var nav = document.querySelector('.nav');
+        if (navToggle) {
+            navToggle.addEventListener('click', function() {
+                nav.classList.toggle('nav-open');
+                navToggle.setAttribute('aria-label', nav.classList.contains('nav-open') ? 'Zavřít menu' : 'Otevřít menu');
+            });
+            document.querySelectorAll('.nav-links a').forEach(function(link) {
+                link.addEventListener('click', function() { nav.classList.remove('nav-open'); });
+            });
+        }
+    })();
+    </script>
+
+</body>
+</html>
