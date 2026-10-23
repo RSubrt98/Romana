@@ -514,6 +514,22 @@ body {
 
 .event-card.past { opacity: 0.6; }
 
+.events-subgroup-title {
+    font-family: var(--font-serif);
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--grey);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 3rem 0 0;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.events-group-title + .events-subgroup-title {
+    margin-top: 1.5rem;
+}
+
 .event-card.no-date {
     grid-template-columns: 1fr;
 }
